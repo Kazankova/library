@@ -2,11 +2,165 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Мой первый сайт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кто есть кто в Next Level</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('presentation-bg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.06;
+      z-index: -1;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html {
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #000;
+    }
+    h1, h2 {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .team {
+      display: -ms-grid;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      -webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      margin: 0.5rem 0 0;
+      font-weight: 600;
+    }
+    .card p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+    .card .contact {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Привет, мир!</h1>
-  <p>Это моя HTML-страница, размещённая на GitHub Pages.</p>
-  <a href="https://example.com">Ссылка на другой сайт</a>
+  <h1>Кто есть кто в Next Level</h1>
+<div class="team-section">
+    <h2>Руководство</h2>
+    <div class="team">
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Наталья Смирнова</h3>
+        <p>Управляющий партнер</p>
+      </div>
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Никита Трендюк</h3>
+        <p>Управляющий партнер</p>
+      </div>
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Анастасия Белоусова</h3>
+        <p>Операционный директор</p>
+        <p class="contact">+7 (950) 622-60-80</p>
+        <p class="contact">churbanova@next-level-agency.ru</p>
+        <p class="contact">@belousova_anastasia</p>
+      </div>
+    </div>
+
+    <h2>Финансовый отдел</h2>
+    <div class="team">
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Лариса Аверкина</h3>
+        <p>Финансовый директор</p>
+        <p class="contact">+7 (929) 849-84-51</p>
+        <p class="contact">av.l@next-level-agency.ru</p>
+        <p class="contact">@Larisa_Averkina</p>
+      </div>
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Анна Болконская</h3>
+        <p>Главный бухгалтер</p>
+        <p class="contact">+7 (905) 055-66-64</p>
+        <p class="contact">a.bolkonskaya@next-level-agency.ru</p>
+      </div>
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Юлия Королева</h3>
+        <p>Бухгалтер</p>
+      </div>
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Анастасия Плясунова</h3>
+        <p>Бухгалтер</p>
+        <p class="contact">+7 (920) 259-57-27</p>
+        <p class="contact">a.plyasunova@next-level-agency.ru</p>
+      </div>
+    </div>
+
+    <h2>Административно-хозяйственный отдел</h2>
+    <div class="team">
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>Людмила Остапова</h3>
+        <p>Офис-менеджер</p>
+        <p class="contact">+7 (904) 100-06-50</p>
+        <p class="contact">l.ostapova@next-level-agency.ru</p>
+        <p class="contact">@lyudadmit</p>
+      </div>
+    </div>
+
+    <h2>HR</h2>
+    <div class="team">
+      <div class="card">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <h3>HR-менеджер</h3>
+        <p class="contact">(контакты будут добавлены позже)</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+

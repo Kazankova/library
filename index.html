@@ -6,6 +6,11 @@
   <title>Кто есть кто в Next Level</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent-color: #6D5BD0;
+      --bg-light: #f9f9f9;
+      --text-color: #222;
+    }
     body::before {
       content: "";
       position: fixed;
@@ -19,43 +24,6 @@
       background-position: center;
       opacity: 0.06;
       z-index: -1;
-      :root {
-  --accent-color: #6D5BD0;
-  --bg-light: #f9f9f9;
-  --text-color: #222;
-}
-
-h2 {
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--accent-color);
-  display: inline-block;
-  padding-bottom: 0.25rem;
-  color: var(--accent-color);
-}
-
-.card {
-  background: linear-gradient(to bottom right, #ffffff, #f3f2ff);
-  border: 1px solid #ddd;
-  border-left: 4px solid var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 0 16px rgba(109, 91, 208, 0.2);
-}
-
-.card h3 {
-  text-transform: uppercase;
-  color: var(--accent-color);
-  font-size: 1.1rem;
-}
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -73,9 +41,13 @@ h2 {
     }
     h1, h2 {
       font-weight: 700;
-      color: #222;
+      color: var(--accent-color);
       margin-bottom: 1rem;
       text-align: center;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+      padding-bottom: 0.25rem;
     }
     .team {
       display: -ms-grid;
@@ -87,6 +59,14 @@ h2 {
       margin: 0 auto;
     }
     .card {
+      background: linear-gradient(to bottom right, #ffffff, #f3f2ff);
+      border: 1px solid #ddd;
+      border-left: 4px solid var(--accent-color);
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 0 16px rgba(109, 91, 208, 0.2);
+    }
       background-color: #fff;
       border-radius: 12px;
       -webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -102,6 +82,8 @@ h2 {
       margin-bottom: 1rem;
     }
     .card h3 {
+      text-transform: uppercase;
+      color: var(--accent-color);
       margin: 0.5rem 0 0;
       font-weight: 600;
     }
@@ -200,4 +182,3 @@ h2 {
   </div>
 </body>
 </html>
-

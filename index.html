@@ -19,6 +19,43 @@
       background-position: center;
       opacity: 0.06;
       z-index: -1;
+      :root {
+  --accent-color: #6D5BD0;
+  --bg-light: #f9f9f9;
+  --text-color: #222;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  color: var(--accent-color);
+}
+
+.card {
+  background: linear-gradient(to bottom right, #ffffff, #f3f2ff);
+  border: 1px solid #ddd;
+  border-left: 4px solid var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 16px rgba(109, 91, 208, 0.2);
+}
+
+.card h3 {
+  text-transform: uppercase;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
     *, *::before, *::after {
       box-sizing: border-box;

@@ -58,6 +58,11 @@
       padding: 1rem;
       text-align: center;
       border-left: 4px solid #007BFF;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
     .card img {
       width: 120px;
@@ -90,7 +95,7 @@
 </head>
 <body>
   <h1>Кто есть кто в Next Level</h1>
-<div class="team-section">
+  <div class="team-section">
     <h2>Руководство</h2>
     <div class="team">
       <div class="card">
@@ -99,7 +104,7 @@
         <p>Управляющий партнер</p>
       </div>
       <div class="card">
-        <img src="JuliaSamartseva.jpg" alt="Фото сотрудника">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
         <h3>Никита Трендюк</h3>
         <p>Управляющий партнер</p>
       </div>

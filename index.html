@@ -6,6 +6,12 @@
   <title>Кто есть кто в Next Level</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent-color: #6c757d; /* Серый цвет */
+      --bg-light: #f0f8ff; /* Нежно-синий фон */
+      --text-color: #222;
+    }
+
     body::before {
       content: "";
       position: fixed;
@@ -20,29 +26,39 @@
       opacity: 0.06;
       z-index: -1;
     }
+
     *, *::before, *::after {
       box-sizing: border-box;
     }
-    .logo-container {
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
-.logo {
-  width: 150px; /* Размер логотипа */
-  height: auto;
-}
     html {
       line-height: 1.15;
       -webkit-text-size-adjust: 100%;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 2rem;
-      background-color: #f9f9f9;
+      background-color: #f0f8ff; /* Нежно-синий фон */
       color: #000;
     }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      width: 150px; /* Размер логотипа */
+      height: auto;
+    }
+
     h1, h2 {
       font-weight: 700;
       color: #007BFF;
@@ -50,6 +66,7 @@
       text-align: center;
       text-transform: uppercase;
     }
+
     .team {
       display: -ms-grid;
       display: grid;
@@ -59,6 +76,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .card {
       background-color: #fff;
       border-radius: 12px;
@@ -69,32 +87,38 @@
       border-left: 4px solid #007BFF;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
+
     .card img {
-      width: 120px;
-      height: 120px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
     }
+
     .card h3 {
       margin: 0.5rem 0 0;
       font-weight: 600;
       color: #007BFF;
       text-transform: uppercase;
     }
+
     .card p {
       margin: 0.3rem 0;
       font-size: 0.95rem;
       font-weight: 400;
     }
+
     .card .contact {
       font-size: 0.9rem;
       color: #555;
     }
+
     @media screen and (max-width: 600px) {
       body {
         padding: 1rem;
@@ -104,21 +128,23 @@
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="logo-placeholder.jpg" alt="Логотип" class="logo">
-  </div>
-</header>
+    <div class="logo-container">
+      <img src="logo-placeholder.jpg" alt="Логотип" class="logo">
+    </div>
+  </header>
+
   <h1>Кто есть кто в Next Level</h1>
+
   <div class="team-section">
     <h2>Руководство</h2>
     <div class="team">
       <div class="card">
-        <img src="img/JuliaSamartseva.jpg" alt="Фото сотрудника">
+        <img src="placeholder.jpg" alt="Фото сотрудника">
         <h3>Наталья Смирнова</h3>
         <p>Управляющий партнер</p>
       </div>
       <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
+        <img src="img/JuliaSamartseva.jpg" alt="Фото сотрудника">
         <h3>Никита Трендюк</h3>
         <p>Управляющий партнер</p>
       </div>
@@ -131,54 +157,7 @@
         <p class="contact">@belousova_anastasia</p>
       </div>
     </div>
-
-    <h2>Финансовый отдел</h2>
-    <div class="team">
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>Лариса Аверкина</h3>
-        <p>Финансовый директор</p>
-        <p class="contact">+7 (929) 849-84-51</p>
-        <p class="contact">av.l@next-level-agency.ru</p>
-        <p class="contact">@Larisa_Averkina</p>
-      </div>
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>Анна Болконская</h3>
-        <p>Главный бухгалтер</p>
-        <p class="contact">+7 (905) 055-66-64</p>
-        <p class="contact">a.bolkonskaya@next-level-agency.ru</p>
-      </div>
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>Юлия Королева</h3>
-        <p>Бухгалтер</p>
-      </div>
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>Анастасия Плясунова</h3>
-        <p>Бухгалтер</p>
-        <p class="contact">+7 (920) 259-57-27</p>
-        <p class="contact">a.plyasunova@next-level-agency.ru</p>
-      </div>
-    </div>
-
-    <h2>Административно-хозяйственный отдел</h2>
-    <div class="team">
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>Людмила Остапова</h3>
-        <p>Офис-менеджер</p>
-        <p class="contact">+7 (904) 100-06-50</p>
-        <p class="contact">l.ostapova@next-level-agency.ru</p>
-        <p class="contact">@lyudadmit</p>
-      </div>
-      <div class="card">
-        <img src="placeholder.jpg" alt="Фото сотрудника">
-        <h3>HR-менеджер</h3>
-        <p class="contact">Контакты будут добавлены позже</p>
-      </div>
-    </div>
   </div>
+
 </body>
 </html>

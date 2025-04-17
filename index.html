@@ -14,7 +14,7 @@
     header {
       background: #4a69bd;
       color: white;
-      padding: 1.5em 1em 1em;
+      padding: 1em 1em 1em;
       text-align: center;
       font-size: 1.8em;
       font-weight: bold;
@@ -23,10 +23,11 @@
       top: 0;
       z-index: 1000;
     }
+    .logo-wrapper {
+      margin-bottom: 0.5em;
+    }
     header img {
-      height: 40px;
-      vertical-align: middle;
-      margin-right: 10px;
+      height: 50px;
     }
     main {
       max-width: 800px;
@@ -85,7 +86,9 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Логотип библиотеки">
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="Логотип библиотеки">
+    </div>
     📚 Библиотека
   </header>
   <main>

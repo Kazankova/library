@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека книг</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #4a69bd;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    main {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1em;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .book {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5em;
+      margin-bottom: 1.5em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+    }
+    .book:hover {
+      transform: scale(1.02);
+    }
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2d3436;
+    }
+    .author {
+      font-size: 0.95em;
+      color: #636e72;
+      margin: 0.2em 0 0.8em;
+    }
+    .meta {
+      font-size: 0.9em;
+      margin-bottom: 1em;
+      color: #555;
+    }
+    a.download {
+      display: inline-block;
+      background: #4a69bd;
+      color: white;
+      padding: 0.6em 1.2em;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: background 0.3s ease;
+    }
+    a.download:hover {
+      background: #3b54a0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    📚 Моя библиотека
+  </header>
+  <main>
+    <input type="text" id="search" placeholder="🔍 Поиск по названию или автору...">
+    <select id="sort">
+      <option value="">Сортировка</option>
+      <option value="title">По алфавиту</option>
+      <option value="date">По дате добавления</option>
+    </select>
+    <div id="library"></div>
+  </main>
+
+  <script>
+    const books = [
+      {
+        title: "Мастер и Маргарита",
+        author: "Михаил Булгаков",
+        format: "epub",
+        link: "https://drive.google.com/file/d/1Xyz1234abc/view",
+        date: "2023-11-01"
+      },
+      {
+        title: "Идиот",
+        author: "Ф.М. Достоевский",
+        format: "pdf",
+        link: "https://yadi.sk/d/abcd5678",
+        date: "2023-12-15"
+      },
+      {
+        title: "Гарри Поттер и философский камень",
+        author: "Дж. К. Роулинг",
+        format: "epub",
+        link: "https://dropbox.com/s/xyz9876/hp1.epub?dl=0",
+        date: "2024-01-10"
+      }
+    ];
+
+    const container = document.getElementById('library');
+    const searchInput = document.getElementById('search');
+    const sortSelect = document.getElementById('sort');
+
+    function renderBooks(filter = '', sortBy = '') {
+      container.innerHTML = '';
+      let filtered = books.filter(b =>
+        b.title.toLowerCase().includes(filter.toLowerCase()) ||
+        b.author.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      if (sortBy === 'title') {
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortBy === 'date') {
+        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+      }
+
+      filtered.forEach(book => {
+        const el = document.createElement('div');
+        el.className = 'book';
+        el.innerHTML = `
+          <div class="title">${book.title}</div>
+          <div class="author">${book.author}</div>
+          <div class="meta">Формат: ${book.format.toUpperCase()}</div>
+          <a class="download" href="${book.link}" target="_blank">Скачать</a>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    searchInput.addEventListener('input', () => {
+      renderBooks(searchInput.value, sortSelect.value);
+    });
+
+    sortSelect.addEventListener('change', () => {
+      renderBooks(searchInput.value, sortSelect.value);
+    });
+
+    renderBooks();
+  </script>
+</body>
+</html>
 

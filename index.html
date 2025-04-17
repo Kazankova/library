@@ -146,6 +146,36 @@
 
 
   </style>
+  <!-- Авторизация через Яндекс ID -->
+<script src="https://yastatic.net/s3/passport-sdk/authtouch/v1.js"></script>
+<div id="yandex-login"></div>
+<script>
+  window.onload = function() {
+    YaAuthSuggest.init({
+      client_id: 'ВАШ_CLIENT_ID',
+      response_type: 'token',
+      redirect_uri: window.location.origin
+    },
+    document.getElementById('yandex-login'),
+    {
+      view: 'button',
+      buttonView: 'main',
+      buttonTheme: 'light',
+      buttonSize: 'm',
+      buttonBorderRadius: 8
+    })
+    .then(function(result) {
+      return result.handler()
+    })
+    .then(function(data) {
+      console.log('Пользователь авторизован:', data);
+      // Здесь можно использовать token: data.access_token
+    })
+    .catch(function(error) {
+      console.log('Ошибка авторизации:', error);
+    });
+  }
+</script>
 </head>
 <body>
   <header>

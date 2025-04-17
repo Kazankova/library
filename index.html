@@ -445,22 +445,6 @@ function paginateBooks(books) {
   const start = (currentPage - 1) * booksPerPage;
   return books.slice(start, start + booksPerPage);
 }
-
-function renderPagination(total, books) {
-  const pagination = document.querySelector('.pagination');
-  pagination.innerHTML = '';
-  const totalPages = Math.ceil(total / booksPerPage);
-
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    if (i === currentPage) btn.classList.add('active');
-    btn.addEventListener('click', () => {
-      currentPage = i;
-      renderBooks(books);
-    });
-    pagination.appendChild(btn);
-  }
 }
 
   </script>

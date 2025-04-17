@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -42,6 +44,24 @@
       border-radius: 8px;
       margin-bottom: 1em;
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .rubricator {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      margin-bottom: 1.5em;
+    }
+    .rubricator button {
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 6px;
+      background-color: #d6e4f0;
+      color: #2d3436;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .rubricator button:hover {
+      background-color: #b4cde1;
     }
     .book {
       background: white;
@@ -89,7 +109,7 @@
     <div class="logo-wrapper">
       <img src="logo.png" alt="Логотип библиотеки">
     </div>
-    Библиотека
+    📚 Моя библиотека
   </header>
   <main>
     <input type="text" id="search" placeholder="🔍 Поиск по названию или автору...">
@@ -99,6 +119,8 @@
       <option value="date">По дате добавления</option>
       <option value="topic">По тематике</option>
     </select>
+
+    <div class="rubricator" id="rubricator"></div>
     <div id="library"></div>
   </main>
 
@@ -138,15 +160,36 @@
       }
     ];
 
+
+    const topics = [
+      "Аналитика", "Клиентский сервис", "Маркетинг", "Менеджмент", "Мотивация",
+      "Переговоры", "Продажи", "Психология", "Саморазвитие", "Работа с персоналом",
+      "Стартапы", "Стратегия", "Управление временем", "Разное"
+    ];
+
     const container = document.getElementById('library');
     const searchInput = document.getElementById('search');
     const sortSelect = document.getElementById('sort');
+    const rubricator = document.getElementById('rubricator');
+
+    function renderRubricator() {
+      topics.forEach(topic => {
+        const btn = document.createElement('button');
+        btn.textContent = topic;
+        btn.addEventListener('click', () => {
+          searchInput.value = topic;
+          renderBooks(topic, sortSelect.value);
+        });
+        rubricator.appendChild(btn);
+      });
+    }
 
     function renderBooks(filter = '', sortBy = '') {
       container.innerHTML = '';
       let filtered = books.filter(b =>
         b.title.toLowerCase().includes(filter.toLowerCase()) ||
-        b.author.toLowerCase().includes(filter.toLowerCase())
+        b.author.toLowerCase().includes(filter.toLowerCase()) ||
+        b.topic?.toLowerCase().includes(filter.toLowerCase())
       );
 
       if (sortBy === 'title') {
@@ -179,6 +222,7 @@
       renderBooks(searchInput.value, sortSelect.value);
     });
 
+    renderRubricator();
     renderBooks();
   </script>
 </body>

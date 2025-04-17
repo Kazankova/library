@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Библиотека книг</title>
+  <title>Библиотека NEXT LEVEL AGENCY</title>
   <style>
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f9fa;
+      background: #e8f1fb;
       color: #333;
     }
     header {
       background: #4a69bd;
       color: white;
-      padding: 1.5em;
+      padding: 1.5em 1em 1em;
       text-align: center;
       font-size: 1.8em;
       font-weight: bold;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
     }
     main {
       max-width: 800px;
@@ -77,7 +85,8 @@
 </head>
 <body>
   <header>
-    📚 Моя библиотека
+    <img src="img/logo.png" alt="Логотип библиотеки">
+    📚 Библиотека
   </header>
   <main>
     <input type="text" id="search" placeholder="🔍 Поиск по названию или автору...">
@@ -156,4 +165,3 @@
   </script>
 </body>
 </html>
-

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -118,7 +116,18 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.06);
   transition: transform 0.2s ease;
 }
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* ...другие свойства... */
+  min-height: 280px; /* задаёт одинаковую высоту карточек */
+}
 
+.book .download {
+  margin-top: auto;       /* прижимает кнопку вниз */
+  align-self: start;      /* выравнивает по левому краю */
+}
 .book:hover {
   transform: scale(1.02);
 }

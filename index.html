@@ -61,7 +61,7 @@
     .author {
       font-size: 0.95em;
       color: #636e72;
-      margin: 0.2em 0 0.8em;
+      margin: 0.2em 0 0.4em;
     }
     .meta {
       font-size: 0.9em;
@@ -94,6 +94,7 @@
       <option value="">Сортировка</option>
       <option value="title">По алфавиту</option>
       <option value="date">По дате добавления</option>
+      <option value="topic">По тематике</option>
     </select>
     <div id="library"></div>
   </main>
@@ -105,21 +106,24 @@
         author: "Михаил Булгаков",
         format: "epub",
         link: "https://drive.google.com/file/d/1Xyz1234abc/view",
-        date: "2023-11-01"
+        date: "2023-11-01",
+        topic: "Русская литература"
       },
       {
         title: "Идиот",
         author: "Ф.М. Достоевский",
         format: "pdf",
         link: "https://yadi.sk/d/abcd5678",
-        date: "2023-12-15"
+        date: "2023-12-15",
+        topic: "Классика"
       },
       {
         title: "Гарри Поттер и философский камень",
         author: "Дж. К. Роулинг",
         format: "epub",
         link: "https://dropbox.com/s/xyz9876/hp1.epub?dl=0",
-        date: "2024-01-10"
+        date: "2024-01-10",
+        topic: "Фэнтези"
       }
     ];
 
@@ -138,6 +142,8 @@
         filtered.sort((a, b) => a.title.localeCompare(b.title));
       } else if (sortBy === 'date') {
         filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+      } else if (sortBy === 'topic') {
+        filtered.sort((a, b) => a.topic?.localeCompare(b.topic));
       }
 
       filtered.forEach(book => {
@@ -146,6 +152,7 @@
         el.innerHTML = `
           <div class="title">${book.title}</div>
           <div class="author">${book.author}</div>
+          <div class="meta">Тематика: ${book.topic || 'Не указана'}</div>
           <div class="meta">Формат: ${book.format.toUpperCase()}</div>
           <a class="download" href="${book.link}" target="_blank">Скачать</a>
         `;
